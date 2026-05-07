@@ -167,6 +167,7 @@ export class BookListComponent implements OnInit {
   books = signal<Book[]>([]);
   loading = signal(true);
   searchTerm = signal('');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   searchTimeout: any;
 
   // Pagination state
@@ -186,7 +187,7 @@ export class BookListComponent implements OnInit {
 
     // Show up to 5 page numbers
     let start = Math.max(1, current - 2);
-    let end = Math.min(total, start + 4);
+    const end = Math.min(total, start + 4);
 
     // Adjust start if we're near the end
     if (end - start < 4) {
@@ -212,7 +213,7 @@ export class BookListComponent implements OnInit {
     this.loadBooks();
   }
 
-  private loadBooks(search?: string, page: number = 1): void {
+  private loadBooks(search?: string, page = 1): void {
     this.loading.set(true);
     this.bookApiClient
       .getBooksWithPagination(page, this.pageSize(), search)

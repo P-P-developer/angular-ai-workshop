@@ -16,7 +16,7 @@ export class BookApiClient {
   private readonly http = inject(HttpClient);
   private readonly apiUrl = 'http://localhost:4730/books';
 
-  getBooks(pageSize: number = 10, searchTerm?: string): Observable<Book[]> {
+  getBooks(pageSize = 10, searchTerm?: string): Observable<Book[]> {
     let params = new HttpParams().set('_limit', pageSize.toString());
 
     if (searchTerm) {
@@ -27,11 +27,7 @@ export class BookApiClient {
     return this.http.get<Book[]>(this.apiUrl, { params });
   }
 
-  getBooksWithPagination(
-    page: number = 1,
-    pageSize: number = 10,
-    searchTerm?: string
-  ): Observable<PaginatedResponse<Book>> {
+  getBooksWithPagination(page = 1, pageSize = 10, searchTerm?: string): Observable<PaginatedResponse<Book>> {
     let params = new HttpParams().set('_page', page.toString()).set('_limit', pageSize.toString());
 
     if (searchTerm) {

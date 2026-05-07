@@ -19,10 +19,10 @@ import { LoadingIndicationComponent } from '../shared/loading-indication.compone
         <app-loading-indication />
       } @else if (error()) {
         <app-error-message
-          [title]="'Book Not Found'"
-          [message]="'The book you\\'re trying to edit doesn\\'t exist or has been removed.'"
-          [backLink]="'/books'"
-          [backLabel]="'Back to Books'"
+          title="Book Not Found"
+          message="The book you're trying to edit doesn't exist or has been removed."
+          backLink="/books"
+          backLabel="Back to Books"
         />
       } @else {
         <div>
