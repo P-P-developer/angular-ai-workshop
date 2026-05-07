@@ -8,6 +8,8 @@
     "build.angular-mcp": "tsc --project tools/angular-mcp/tsconfig.json",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "lint": "ng lint",
+    "type-check": "tsc --noEmit",
     "format.write": "prettier --write \"src/**/*.{ts,html,md,css,json}\""
   },
   "private": true,
